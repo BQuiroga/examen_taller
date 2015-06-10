@@ -39,4 +39,29 @@ class User < ActiveRecord::Base
     		self.add_role :user
     	end
   end
+
+  def peso_ideal
+    edad=Time.diff(Time.now,self.birthdate)[:year]
+    if (self.sex=='Male')
+      return ((self.height-100) +(edad/10))*0.9*1.05
+    else
+      return ((self.height -100) +(edad/10))*0.9*0.95
+    end
+  end
+
+  def imc
+    self.weight/((self.height/100)**2)
+  end
+  def estado_peso
+    if (self.imc<18.5)
+      return "Bajo Peso"
+    elsif (self.imc<24.9)
+      return "Peso Normal"
+    elsif (self.imc<29.9)
+      return "Sobre Peso"
+    else
+      return "Obesidad"
+    end
+      
+  end
 end

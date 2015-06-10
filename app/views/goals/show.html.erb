@@ -39,7 +39,24 @@
               <%= @goal.complete %>
             </p>
              
-
+             <p>
+                <%if @goal.type_goal.tip=='Weight' %>
+                <strong>IMC:</strong>
+                <%=current_user.imc.to_s%>
+                <%end%>
+             </p>
+              <p>
+                <%if @goal.type_goal.tip=='Weight' %>
+                <strong>Peso ideal:</strong>
+                <%=current_user.peso_ideal.to_s%>
+                <%end%>
+             </p>
+             <p>
+                <%if @goal.type_goal.tip=='Weight' %>
+                <strong>Estado de peso:</strong>
+                <%=current_user.estado_peso%>
+                <%end%>
+             </p>
 
                 
             

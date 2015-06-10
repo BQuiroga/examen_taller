@@ -38,4 +38,8 @@ class UserControllerTest < ActionController::TestCase
 
     assert_redirected_to users_path
   end
+  test "should be good" do
+    get :peso_ideal, id: @user
+    assert_response :success
+  end
 end
